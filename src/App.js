@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import './locomotive-scroll.css'
 import './App.css';
+import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import Home from './views/Home';
+import Contact from './views/Contact';
+import Footer from './components/Footer';
 
 function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <nav>
+          <h1>A.B</h1>
+          <ul>
+            <li className="nav-links"><Link to="/">Home</Link></li>
+            <li className="nav-links"><Link to="/contact">Contact</Link></li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" Component={Home}>
+          </Route>
+          <Route path="/contact" Component={Contact}>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+      <Footer/>
     </div>
   );
 }
